@@ -1,1 +1,2 @@
-# excercism-challenges
+# exercism-challenges
+http://exercism.io/
