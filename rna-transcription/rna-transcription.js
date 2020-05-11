@@ -1,22 +1,15 @@
 module.exports = {
-  dnaTranscribertoRna: (dnaStrand) => {
+  toRna: (dnaStrand) => {
     const rnaStrand = {
-      G: 'C',
-      C: 'G',
-      T: 'A',
-      A: 'U'
-    }
+      G: "C",
+      C: "G",
+      T: "A",
+      A: "U",
+    };
 
-    const dna = dnaStrand.split("");
-    let rna = '';
-
-    dna.map(nucleotide => {
-      if (rnaStrand[nucleotide]) {
-        rna = rna.concat(rnaStrand[nucleotide]);
-      } else {
-        throw new Error('Invalid input');
-      }
-    });
-    return rna;
-  }
-}
+    return dnaStrand
+      .split("")
+      .reduce((rna, nucleotide) => [...rna, rnaStrand[nucleotide]], [])
+      .join("");
+  },
+};
